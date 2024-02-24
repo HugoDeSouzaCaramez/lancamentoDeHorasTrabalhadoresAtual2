@@ -10,8 +10,8 @@ class EmployerController extends Controller
     // Mostra a lista de colaboradores
     public function index()
     {
-         $employers = Employer::all();
-         return view('employers.index', compact('employers'));
+        $employers = Employer::paginate(10);
+        return view('employers.index', ['employers' => $employers]);
     }
 
     // Mostra o formulário para criar um novo colaborador
@@ -29,8 +29,8 @@ class EmployerController extends Controller
         ]);
 
         Employer::create($request->all());
-        $employers = Employer::all();
-        return view('employers.index', compact('employers'));
+
+        return redirect()->route('home');
     }
 
     // Mostra os detalhes de um colaborador específico
@@ -43,7 +43,8 @@ class EmployerController extends Controller
     public function edit($id)
     {
         $employer = Employer::findOrFail($id);
-        return view('employers.edit', compact('employer'));
+        
+        return redirect()->route('home');
     }
 
     public function update(Request $request, $id)
@@ -57,15 +58,14 @@ class EmployerController extends Controller
         $employer->update($request->all());
 
         //return redirect()->route('employers.index')->with('success', 'Employer atualizado com sucesso!');
-        $employers = Employer::all();
-        return view('employers.index', compact('employers'));
+        return redirect()->route('home');
     }
 
     // Remove um colaborador do banco de dados
     public function destroy(Employer $employer)
     {
         $employer->delete();
-        return redirect()->route('employers.index');
+        return redirect()->route('home');
     }
 
     // Lança o horário de entrada do colaborador

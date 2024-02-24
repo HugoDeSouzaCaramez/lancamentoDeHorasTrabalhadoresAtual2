@@ -15,6 +15,12 @@
                                 <li><a href="{{ route('employers.edit', $employer->id) }}">Editar</a></li>
                             @endforeach
                         </ul>
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination justify-content-center"> {{-- Aplicando a classe pagination-sm --}}
+                                {{-- Links de paginação --}}
+                                {{ $employers->links() }}
+                            </ul>
+                        </nav>
                     </div>
                 </div>
             </div>
