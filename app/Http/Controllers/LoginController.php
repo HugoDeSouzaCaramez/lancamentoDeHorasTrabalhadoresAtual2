@@ -10,14 +10,6 @@ use App\Models\User;
 
 class LoginController extends Controller
 {
-    //use AuthenticatesUsers;
-
-    // protected function sendFailedLoginResponse(Request $request)
-    // {
-    //     throw ValidationException::withMessages([
-    //         $this->username() => [trans('auth.failed')],
-    //     ])->redirectTo(route('login'));
-    // }
     public function authenticate(Request $request)
     {
         // Validate the request
@@ -42,7 +34,7 @@ class LoginController extends Controller
 
         // Authentication failed
         return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
+            'email' => 'As credenciais fornecidas não correspondem aos nossos registros.',
         ]);
     }
 

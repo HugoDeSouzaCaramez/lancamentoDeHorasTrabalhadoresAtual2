@@ -32,7 +32,7 @@
                             <input type="number" class="form-control" id="hours_worked" name="hours_worked" required>
                         </div>
 
-                        <button type="submit" class="btn btn-primary">Cadastrar</button>
+                        <button type="submit" class="btn btn-primary">Salvar</button>
                     </form>
                 </div>
             </div>
