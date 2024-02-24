@@ -13,12 +13,7 @@ return new class extends Migration
     {
         Schema::create('working_hours', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('employer_id');
-            $table->date('date');
-            $table->integer('hours_worked');
             $table->timestamps();
-    
-            $table->foreign('employer_id')->references('id')->on('employers')->onDelete('cascade');
         });
     }
 

@@ -26,6 +26,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('register') }}">Registrar</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('working-hours.create') }}">Hours</a>
+                        </li>
                     @else
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('employers.index') }}">Colaboradores</a>

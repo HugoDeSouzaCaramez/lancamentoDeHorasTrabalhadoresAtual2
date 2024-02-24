@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmployerController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\WorkingHourController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,7 +27,8 @@ Route::get('/employers/create', [EmployerController::class, 'create'])->name('em
 Route::post('/employers/store', [EmployerController::class, 'store'])->name('employers.store');
 Route::get('/employers/{id}/edit', [EmployerController::class, 'edit'])->name('employers.edit');
 Route::put('/employers/{employer}', [EmployerController::class, 'update'])->name('employers.update');
-
+Route::get('/working-hours/create', [WorkingHourController::class, 'create'])->name('working-hours.create');
+Route::post('/working-hours/store', [WorkingHourController::class, 'store'])->name('working-hours.store');
 // Route::middleware(['auth'])->group(function () {
 //     //Route::resource('employers', EmployerController::class);
 //     Route::put('employers/{employer}/check-in', [EmployerController::class, 'checkIn'])->name('employers.check-in');
