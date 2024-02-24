@@ -3,13 +3,18 @@
 
 @section('content')
     <div class="container">
-        <h1>Horas trabalhadas</h1>
+        @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+        <h1>Horas Lançadas</h1>
         <table class="table">
             <thead>
                 <tr>
-                    <th>Employer</th>
-                    <th>Hours Worked</th>
-                    <th>Date</th>
+                    <th>Colaborador</th>
+                    <th>Hora Lançada</th>
+                    <th>Data</th>
                     <th>Ação</th>
                 </tr>
             </thead>

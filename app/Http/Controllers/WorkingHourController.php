@@ -29,8 +29,7 @@ class WorkingHourController extends Controller
 
         WorkingHour::create($request->all());
 
-            //return redirect()->back()->with('success', 'Horas trabalhadas cadastradas com sucesso!');
-        return redirect()->route('working-hours.index');
+        return redirect()->route('working-hours.index')->with('success', 'Hora lançada com sucesso!');
     }
 
     public function edit($id)
@@ -48,6 +47,6 @@ class WorkingHourController extends Controller
 
         $workingHour->update($request->all());
 
-        return redirect()->route('working-hours.index')->with('success', 'Working hour updated successfully');
+        return redirect()->route('working-hours.index')->with('success', 'Hora lançada com sucesso!');
     }
 }

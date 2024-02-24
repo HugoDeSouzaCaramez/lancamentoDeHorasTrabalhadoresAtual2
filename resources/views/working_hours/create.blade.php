@@ -7,14 +7,14 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Cadastrar Horas Trabalhadas</div>
+                <div class="card-header">Cadastrar Horas Lançadas</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('working-hours.store') }}">
                         @csrf
 
                         <div class="form-group">
-                            <label for="employer_id">Employer:</label>
+                            <label for="employer_id">Colaborador:</label>
                             <select name="employer_id" id="employer_id" class="form-control" required>
                                 @foreach($employers as $employer)
                                     <option value="{{ $employer->id }}">{{ $employer->id }}: {{ $employer->name }}</option>

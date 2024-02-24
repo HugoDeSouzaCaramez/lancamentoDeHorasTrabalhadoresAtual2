@@ -5,7 +5,7 @@
 @section('content')
     <div class="container">
         <div class="container">
-            <h1>Edit Working Hour</h1>
+            <h1>Editar Horas Lançadas</h1>
     
             @if ($errors->any())
                 <div class="alert alert-danger">
@@ -23,11 +23,11 @@
                 <input type="hidden" name="employer_id" value="{{ $workingHour->employer_id }}">
     
                 <div class="form-group">
-                    <label for="hours_worked">Hours Worked</label>
+                    <label for="hours_worked">Horas Lançadas</label>
                     <input type="number" class="form-control" id="hours_worked" name="hours_worked" value="{{ $workingHour->hours_worked }}">
                 </div>
                 <div class="form-group">
-                    <label for="date">Date</label>
+                    <label for="date">Data</label>
                     <input type="date" class="form-control" id="date" name="date" value="{{ $workingHour->date }}">
                 </div>
     

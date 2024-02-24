@@ -30,7 +30,7 @@ class EmployerController extends Controller
 
         Employer::create($request->all());
 
-        return redirect()->route('home')->with('success', 'Colaborador cadastrado com sucesso!');;
+        return redirect()->route('home')->with('success', 'Colaborador cadastrado com sucesso!');
     }
 
     // Mostra os detalhes de um colaborador específico
@@ -57,7 +57,7 @@ class EmployerController extends Controller
         $employer->update($request->all());
 
         //return redirect()->route('employers.index')->with('success', 'Employer atualizado com sucesso!');
-        return redirect()->route('home');
+        return redirect()->route('home')->with('success', 'Colaborador atualizado com sucesso!');;
     }
 
     // Remove um colaborador do banco de dados
@@ -65,21 +65,5 @@ class EmployerController extends Controller
     {
         $employer->delete();
         return redirect()->route('home');
-    }
-
-    // Lança o horário de entrada do colaborador
-    public function checkIn(Employer $employer)
-    {
-        $employer->last_check_in = now();
-        $employer->save();
-        return redirect()->back();
-    }
-
-    // Lança o horário de saída do colaborador
-    public function checkOut(Employer $employer)
-    {
-        $employer->last_check_out = now();
-        $employer->save();
-        return redirect()->back();
     }
 }
