@@ -10,7 +10,7 @@ class EmployerController extends Controller
     // Mostra a lista de colaboradores
     public function index()
     {
-        $employers = Employer::paginate(10);
+        $employers = Employer::orderBy('name', 'asc')->paginate(10);;
         return view('employers.index', ['employers' => $employers]);
     }
 
@@ -43,8 +43,7 @@ class EmployerController extends Controller
     public function edit($id)
     {
         $employer = Employer::findOrFail($id);
-        
-        return redirect()->route('home');
+        return view('employers.edit', compact('employer'));
     }
 
     public function update(Request $request, $id)

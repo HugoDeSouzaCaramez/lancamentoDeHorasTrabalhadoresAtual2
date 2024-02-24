@@ -24,17 +24,20 @@
                             <a class="nav-link" href="{{ route('login') }}">Login</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">Registrar</a>
+                            <a class="nav-link" href="{{ route('register') }}">Registrar-se</a>
                         </li>
                     @else
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('home') }}">Colaboradores</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('working-hours.create') }}">Hours</a>
+                            <a class="nav-link" href="{{ route('working-hours.index') }}">Horas</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('employers.create') }}">Adicionar Employer</a>
+                            <a class="nav-link" href="{{ route('working-hours.create') }}">Adicionar Horas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('employers.create') }}">Adicionar Colaborador</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Sair</a>

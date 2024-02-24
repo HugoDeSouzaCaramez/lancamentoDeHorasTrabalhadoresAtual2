@@ -8,6 +8,11 @@ use App\Models\Employer;
 
 class WorkingHourController extends Controller
 {
+    public function index()
+    {
+        $workingHours = WorkingHour::orderBy('date', 'desc')->paginate(10);
+        return view('working_hours.index', ['workingHours' => $workingHours]);
+    }
     public function create()
     {
         $employers = Employer::all();
@@ -25,7 +30,24 @@ class WorkingHourController extends Controller
         WorkingHour::create($request->all());
 
             //return redirect()->back()->with('success', 'Horas trabalhadas cadastradas com sucesso!');
-        $employers = Employer::all();
-        return view('employers.index', compact('employers'));
+            return redirect()->route('home');
+    }
+
+    public function edit($id)
+    {
+        $workingHour = WorkingHour::findOrFail($id);
+        return view('working_hours.edit', compact('workingHour'));
+    }
+
+    public function update(Request $request, WorkingHour $workingHour)
+    {
+        $request->validate([
+            'hours_worked' => 'required|integer',
+            'date' => 'required|date',
+        ]);
+
+        $workingHour->update($request->all());
+
+        return redirect()->route('working-hours.index')->with('success', 'Working hour updated successfully');
     }
 }

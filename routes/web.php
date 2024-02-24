@@ -31,13 +31,16 @@ Route::post('register', [RegisterController::class, 'register'])->name('register
 
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/employers/home', [EmployerController::class, 'index'])->name('home');
+    Route::get('/home', [EmployerController::class, 'index'])->name('home');
     Route::get('/employers/create', [EmployerController::class, 'create'])->name('employers.create');
     Route::post('/employers/store', [EmployerController::class, 'store'])->name('employers.store');
     Route::get('/employers/{id}/edit', [EmployerController::class, 'edit'])->name('employers.edit');
     Route::put('/employers/{employer}', [EmployerController::class, 'update'])->name('employers.update');
+    Route::get('/working-hours', [WorkingHourController::class, 'index'])->name('working-hours.index');
     Route::get('/working-hours/create', [WorkingHourController::class, 'create'])->name('working-hours.create');
     Route::post('/working-hours/store', [WorkingHourController::class, 'store'])->name('working-hours.store');
+    Route::get('/working-hours/{id}/edit', [WorkingHourController::class, 'edit'])->name('working-hours.edit');
+    Route::put('/working-hours/{workingHour}', [WorkingHourController::class, 'update'])->name('working-hours.update');
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
     // Outras rotas protegidas aqui...
 });

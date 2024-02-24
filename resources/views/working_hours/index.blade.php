@@ -1,26 +1,25 @@
-<!-- resources/views/employers/index.blade.php -->
 
 @extends('layouts.app')
 
 @section('content')
     <div class="container">
-        <h1>Colaboradores</h1>
+        <h1>Horas trabalhadas</h1>
         <table class="table">
             <thead>
                 <tr>
-                    <th>Id</th>
-                    <th>Nome</th>
-                    <th>E-mail</th>
+                    <th>Employer</th>
+                    <th>Hours Worked</th>
+                    <th>Date</th>
                     <th>Ação</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($employers as $employer)
+                @foreach ($workingHours as $workingHour)
                 <tr>
-                    <td>{{ $employer->id }}</td>
-                    <td>{{ $employer->name }}</td>
-                    <td>{{ $employer->email }}</td>
-                    <td><a href="{{ route('employers.edit', $employer->id) }}">Editar</a></td>
+                    <td>{{ $workingHour->employer->id }}-{{ $workingHour->employer->name }}</td>
+                    <td>{{ $workingHour->hours_worked }}</td>
+                    <td>{{ $workingHour->date }}</td>
+                    <td><a href="{{ route('working-hours.edit', $workingHour->id) }}">Editar</a></td>
                 </tr>
                 @endforeach
             </tbody>
@@ -28,7 +27,7 @@
         <nav aria-label="Page navigation">
             <ul class="pagination justify-content-center"> {{-- Aplicando a classe pagination-sm --}}
                 {{-- Links de paginação --}}
-                {{ $employers->links() }}
+                {{ $workingHours->links() }}
             </ul>
         </nav>
     </div>
