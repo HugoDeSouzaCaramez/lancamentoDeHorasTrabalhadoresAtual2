@@ -22,7 +22,7 @@ class LoginController extends Controller
 
         if (!$user) {
             return back()->withErrors([
-                'email' => 'User does not exist.',
+                'email' => 'Usuário não existe.',
             ]);
         }
 
