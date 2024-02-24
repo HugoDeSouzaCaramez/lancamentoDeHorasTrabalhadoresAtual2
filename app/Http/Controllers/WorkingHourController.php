@@ -16,14 +16,16 @@ class WorkingHourController extends Controller
 
     public function store(Request $request)
     {
-    $request->validate([
-    'employer_id' => 'required',
-    'date' => 'required|date',
-    'hours_worked' => 'required|integer',
-    ]);
+        $request->validate([
+            'employer_id' => 'required',
+            'date' => 'required|date|unique:working_hours,date,NULL,id,employer_id,' . $request->employer_id,
+            'hours_worked' => 'required|integer',
+        ]);
 
-    WorkingHour::create($request->all());
+        WorkingHour::create($request->all());
 
-    return redirect()->back()->with('success', 'Horas trabalhadas cadastradas com sucesso!');
+            //return redirect()->back()->with('success', 'Horas trabalhadas cadastradas com sucesso!');
+        $employers = Employer::all();
+        return view('employers.index', compact('employers'));
     }
 }

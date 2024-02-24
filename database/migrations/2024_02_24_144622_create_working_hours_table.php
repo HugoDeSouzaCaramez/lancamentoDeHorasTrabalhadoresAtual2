@@ -19,6 +19,8 @@ return new class extends Migration
             $table->timestamps();
     
             $table->foreign('employer_id')->references('id')->on('employers')->onDelete('cascade');
+
+            $table->unique(['employer_id', 'date']);
         });
     }
 
