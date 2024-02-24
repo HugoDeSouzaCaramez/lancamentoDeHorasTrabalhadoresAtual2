@@ -30,7 +30,7 @@ class WorkingHourController extends Controller
         WorkingHour::create($request->all());
 
             //return redirect()->back()->with('success', 'Horas trabalhadas cadastradas com sucesso!');
-            return redirect()->route('home');
+        return redirect()->route('working-hours.index');
     }
 
     public function edit($id)

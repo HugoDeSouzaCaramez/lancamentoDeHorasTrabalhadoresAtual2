@@ -30,7 +30,7 @@ class EmployerController extends Controller
 
         Employer::create($request->all());
 
-        return redirect()->route('home');
+        return redirect()->route('home')->with('success', 'Colaborador cadastrado com sucesso!');;
     }
 
     // Mostra os detalhes de um colaborador específico
