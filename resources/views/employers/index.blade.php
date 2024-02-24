@@ -7,7 +7,6 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <a href="{{ route('employers.create') }}">Adicionar Employer</a>
                     <div class="card-header">Listagem de Colaboradores</div>
                     <div class="card-body">
                         <ul>
