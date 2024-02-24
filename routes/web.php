@@ -23,7 +23,8 @@ Route::post('register', [RegisterController::class, 'register'])->name('register
 Route::post('/employers/home', [EmployerController::class, 'index'])->name('home');
 Route::get('/employers/create', [EmployerController::class, 'create'])->name('employers.create');
 Route::post('/employers/store', [EmployerController::class, 'store'])->name('employers.store');
-Route::post('/employers/home', [EmployerController::class, 'show'])->name('employers.show');
+Route::get('/employers/{id}/edit', [EmployerController::class, 'edit'])->name('employers.edit');
+Route::put('/employers/{employer}', [EmployerController::class, 'update'])->name('employers.update');
 
 // Route::middleware(['auth'])->group(function () {
 //     //Route::resource('employers', EmployerController::class);

@@ -13,6 +13,7 @@
                         <ul>
                             @foreach ($employers as $employer)
                                 <li>{{ $employer->name }} - {{ $employer->email }}</li>
+                                <li><a href="{{ route('employers.edit', $employer->id) }}">Editar</a></li>
                             @endforeach
                         </ul>
                     </div>

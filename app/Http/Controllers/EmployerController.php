@@ -12,14 +12,6 @@ class EmployerController extends Controller
     {
          $employers = Employer::all();
          return view('employers.index', compact('employers'));
-        // Aqui você pode adicionar a lógica necessária para buscar dados da tela principal, se necessário
-        // Por exemplo:
-        // $data = AlgumModelo::all();
-
-        // Em seguida, você pode passar esses dados para a view e retornar a view
-        // return view('nome_da_sua_view', compact('data'));
-
-        //return view('home'); // Supondo que sua view principal se chama "home.blade.php"
     }
 
     // Mostra o formulário para criar um novo colaborador
@@ -48,21 +40,25 @@ class EmployerController extends Controller
     }
 
     // Mostra o formulário para editar um colaborador
-    public function edit(Employer $employer)
+    public function edit($id)
     {
+        $employer = Employer::findOrFail($id);
         return view('employers.edit', compact('employer'));
     }
 
-    // Atualiza um colaborador no banco de dados
-    public function update(Request $request, Employer $employer)
+    public function update(Request $request, $id)
     {
         $request->validate([
             'name' => 'required',
-            'email' => 'required|email|unique:employers,email,' . $employer->id,
+            'email' => 'required|email',
         ]);
 
+        $employer = Employer::findOrFail($id);
         $employer->update($request->all());
-        return redirect()->route('employers.index');
+
+        //return redirect()->route('employers.index')->with('success', 'Employer atualizado com sucesso!');
+        $employers = Employer::all();
+        return view('employers.index', compact('employers'));
     }
 
     // Remove um colaborador do banco de dados
