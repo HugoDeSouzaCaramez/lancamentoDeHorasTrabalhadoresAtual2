@@ -18,6 +18,7 @@
                     <th>Id</th>
                     <th>Nome</th>
                     <th>E-mail</th>
+                    <th>CPF</th>
                     <th>Ação</th>
                 </tr>
             </thead>
@@ -27,6 +28,7 @@
                     <td>{{ $employer->id }}</td>
                     <td>{{ $employer->name }}</td>
                     <td>{{ $employer->email }}</td>
+                    <td>{{ $employer->cpf }}</td>
                     <td><a href="{{ route('employers.edit', $employer->id) }}">Editar</a></td>
                 </tr>
                 @endforeach

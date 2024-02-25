@@ -12,6 +12,7 @@
             <thead>
                 <tr>
                     <th>Colaborador</th>
+                    <th>CPF</th>
                     <th>Hora Lançada</th>
                     <th>Data</th>
                     <th>Ação</th>
@@ -20,7 +21,8 @@
             <tbody>
                 @foreach ($workingHours as $workingHour)
                 <tr>
-                    <td>{{ $workingHour->employer->id }} - {{ $workingHour->employer->name }}</td>
+                    <td>{{ $workingHour->employer->name }}</td>
+                    <td>{{ $workingHour->employer->cpf }}</td>
                     <td>{{ $workingHour->hours_worked }}</td>
                     <td>{{ $workingHour->date }}</td>
                     <td><a href="{{ route('working-hours.edit', $workingHour->id) }}">Editar</a></td>
