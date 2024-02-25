@@ -8,6 +8,8 @@
             </div>
         @endif
         <h1>Horas Lançadas</h1>
+
+        <date-search></date-search>
         <table class="table">
             <thead>
                 <tr>

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\WorkingHour;
 use App\Models\Employer;
+use Illuminate\Support\Facades\DB;
+
 
 class WorkingHourController extends Controller
 {
@@ -48,5 +50,16 @@ class WorkingHourController extends Controller
         $workingHour->update($request->all());
 
         return redirect()->route('working-hours.index')->with('success', 'Hora lançada com sucesso!');
+    }
+
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+
+        $dates = DB::table('working_hours')
+                ->where(DB::raw('DATE_FORMAT(date, "%Y-%m-%d")'), 'LIKE', '%' . $query . '%')
+                ->get();
+
+        return response()->json(['results' => $dates]);
     }
 }

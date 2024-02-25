@@ -7,7 +7,7 @@
                         type="text"
                         v-model="search"
                         class="form-control"
-                        placeholder="Procurar colaborador"
+                        placeholder="Buscar colaborador"
                     />
                 </div>
             </div>
@@ -56,7 +56,7 @@ export default {
                     this.employers = response.data;
                 })
                 .catch((error) => {
-                    console.error("Error fetching employers:", error);
+                    console.error("Erro ao procurar colaboradores:", error);
                 });
         },
     },

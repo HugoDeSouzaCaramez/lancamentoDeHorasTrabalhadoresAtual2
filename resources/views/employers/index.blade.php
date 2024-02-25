@@ -8,10 +8,7 @@
             </div>
         @endif
         <h1>Colaboradores</h1>
-        <div id="app">
-            <employer-list></employer-list>
-        </div>
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <employer-list></employer-list>
         <table class="table">
             <thead>
                 <tr>
