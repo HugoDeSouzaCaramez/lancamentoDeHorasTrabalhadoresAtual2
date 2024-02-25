@@ -7,13 +7,12 @@
                         type="text"
                         v-model="search"
                         class="form-control"
-                        placeholder="aaaa-mm-dd"
+                        placeholder="dd-mm-aaaa"
                     />
                 </div>
             </div>
             <div class="container">
                 <div class="row">
-                    <!-- Loop para renderizar os <li> -->
                     <div
                         v-if="search.length > 0"
                         class="col-md-3"
