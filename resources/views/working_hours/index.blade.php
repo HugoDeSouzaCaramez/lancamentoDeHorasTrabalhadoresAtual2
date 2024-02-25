@@ -15,7 +15,7 @@
                 <tr>
                     <th>Colaborador</th>
                     <th>CPF</th>
-                    <th>Hora Lançada</th>
+                    <th>Horas Lançadas</th>
                     <th>Data</th>
                     <th>Ação</th>
                 </tr>
