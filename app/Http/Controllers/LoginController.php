@@ -12,7 +12,6 @@ class LoginController extends Controller
 {
     public function authenticate(Request $request)
     {
-        // Validate the request
         $credentials = $request->validate([
             'email' => 'required|email',
             'password' => 'required',
@@ -26,13 +25,10 @@ class LoginController extends Controller
             ]);
         }
 
-        // Attempt to authenticate the user
         if (Auth::attempt($credentials)) {
-            // Authentication successful
             return redirect()->route('home');
         }
 
-        // Authentication failed
         return back()->withErrors([
             'email' => 'As credenciais fornecidas não correspondem aos nossos registros.',
         ]);

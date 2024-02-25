@@ -1,5 +1,3 @@
-<!-- resources/views/employers/show.blade.php -->
-
 @extends('layouts.app')
 
 @section('content')
@@ -11,7 +9,6 @@
 
                     <div class="card-body">
                         <p><strong>Email:</strong> {{ $employer->email }}</p>
-                        <!-- Adicione mais informações aqui conforme necessário -->
                     </div>
                 </div>
             </div>

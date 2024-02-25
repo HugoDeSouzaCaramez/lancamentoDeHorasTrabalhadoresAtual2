@@ -17,13 +17,10 @@ use App\Http\Controllers\LoginController;
 |
 */
 
-//Route::get('/', [LoginController::class, 'showLoginForm'])->name('login');
-
 Route::get('/', function () {
     return view('auth.login');
 })->name('login');
 
-// Rota para processar a autenticação do usuário
 Route::post('/login', [LoginController::class, 'authenticate'])->name('login.authenticate');
 
 Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('register');
@@ -44,10 +41,3 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
     Route::get('/search-employers', [EmployerController::class, 'search']);
 });
-
-// Route::middleware(['auth'])->group(function () {
-//     //Route::resource('employers', EmployerController::class);
-//     Route::put('employers/{employer}/check-in', [EmployerController::class, 'checkIn'])->name('employers.check-in');
-//     Route::put('employers/{employer}/check-out', [EmployerController::class, 'checkOut'])->name('employers.check-out');
-//     Route::post('/index', [EmployerController::class, 'index'])->name('employers.index');
-// });

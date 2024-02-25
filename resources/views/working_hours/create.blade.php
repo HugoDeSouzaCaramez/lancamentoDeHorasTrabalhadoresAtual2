@@ -1,5 +1,3 @@
-<!-- resources/views/working_hours/create.blade.php -->
-
 @extends('layouts.app')
 
 @section('content')

@@ -1,5 +1,3 @@
-<!-- resources/views/employers/index.blade.php -->
-
 @extends('layouts.app')
 
 @section('content')
@@ -35,8 +33,7 @@
             </tbody>
         </table>
         <nav aria-label="Page navigation">
-            <ul class="pagination justify-content-center"> {{-- Aplicando a classe pagination-sm --}}
-                {{-- Links de paginação --}}
+            <ul class="pagination justify-content-center">
                 {{ $employers->links() }}
             </ul>
         </nav>
