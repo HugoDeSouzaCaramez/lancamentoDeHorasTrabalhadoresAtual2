@@ -5,22 +5,23 @@
                 <div class="col-12">
                     <input
                         type="text"
-                        v-model="searchInput"
+                        v-model="search"
                         class="form-control"
-                        placeholder="Buscar Data aaaa-mm-dd"
+                        placeholder="aaaa-mm-dd"
                     />
                 </div>
             </div>
             <div class="container">
                 <div class="row">
+                    <!-- Loop para renderizar os <li> -->
                     <div
-                        v-if="searchInput.length > 0"
-                        v-for="result in results"
-                        :key="result.id"
-                        class="col-3"
+                        v-if="search.length > 0"
+                        class="col-md-3"
+                        v-for="(item, index) in filteredDates"
+                        :key="index"
                     >
                         <ul class="list-unstyled">
-                            <li>{{ result.date }}</li>
+                            <li>{{ item.date }}</li>
                         </ul>
                     </div>
                 </div>
@@ -30,27 +31,32 @@
 </template>
 
 <script>
-import axios from "axios";
-
 export default {
     data() {
         return {
-            searchInput: "",
-            results: [],
+            dates: [],
+            search: "",
         };
     },
+    computed: {
+        filteredDates() {
+            return this.dates.filter((date) =>
+                date.date.toLowerCase().includes(this.search.toLowerCase())
+            );
+        },
+    },
     mounted() {
-        this.search();
+        this.fetchDates();
     },
     methods: {
-        search() {
+        fetchDates() {
             axios
                 .get("/working-hours/search")
                 .then((response) => {
-                    this.results = response.data.results;
+                    this.dates = response.data;
                 })
                 .catch((error) => {
-                    console.error("Erro ao buscar datas:", error);
+                    console.error("Erro ao procurar colaboradores:", error);
                 });
         },
     },

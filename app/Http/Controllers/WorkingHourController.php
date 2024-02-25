@@ -60,6 +60,6 @@ class WorkingHourController extends Controller
                 ->where(DB::raw('DATE_FORMAT(date, "%Y-%m-%d")'), 'LIKE', '%' . $query . '%')
                 ->get();
 
-        return response()->json(['results' => $dates]);
+        return response()->json($dates);
     }
 }
