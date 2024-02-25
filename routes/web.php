@@ -17,12 +17,6 @@ use App\Http\Controllers\LoginController;
 |
 */
 
-Route::get('/', function () {
-    return view('auth.login');
-})->name('login');
-
-Route::post('/login', [LoginController::class, 'authenticate'])->name('login.authenticate');
-
 Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('register', [RegisterController::class, 'register'])->name('register.post');
 
@@ -40,4 +34,15 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/working-hours/{workingHour}', [WorkingHourController::class, 'update'])->name('working-hours.update');
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
     Route::get('/search-employers', [EmployerController::class, 'search']);
+});
+
+Route::middleware(['guest'])->group(function () {
+    Route::get('/', function () {
+        return view('auth.login');
+    })->name('login');
+    
+    Route::post('/login', [LoginController::class, 'authenticate'])->name('login.authenticate');
+    // Route::get('/login', function () {
+    //     return redirect('/home');
+    // });
 });
