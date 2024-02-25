@@ -6,6 +6,7 @@
 <p>npm run dev</p>
 <p>Realizar as misgrações com: php artisan migrate</p>
 <p>Deve-se registrar-se para conseguir fazer login</p>
+<p>Se for o caso, descomentar em php.ini a linha que contenha extension=mysqli e que contenha extension=pdo_mysql</p>
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">

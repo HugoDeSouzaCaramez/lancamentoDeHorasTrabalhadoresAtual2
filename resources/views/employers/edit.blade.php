@@ -31,7 +31,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="cpf">CPF:</label>
-                                <input type="text" id="cpf" name="cpf" value="{{ $employer->cpf }}" class="form-control" required>
+                                <input type="text" id="cpf" name="cpf" value="{{ $employer->cpf }}" class="form-control" placeholder="000.000.000-0" required>
                             </div>
                             <div class="form-group">
                                 <label for="birth_date">Data de Nascimento:</label>
