@@ -66,6 +66,10 @@ class WorkingHourController extends Controller
                 ->where(DB::raw('DATE_FORMAT(date, "%Y-%m-%d")'), 'LIKE', '%' . $query . '%')
                 ->get();
 
+        foreach ($dates as $date) {
+            $date->date = Carbon::parse($date->date)->format('d-m-Y');
+        }
+
         return response()->json($dates);
     }
 }
