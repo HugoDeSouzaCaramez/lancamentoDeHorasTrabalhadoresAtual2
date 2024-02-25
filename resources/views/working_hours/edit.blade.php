@@ -24,6 +24,10 @@
                     <input type="text" class="form-control" id="employer" name="employer" value="{{ $workingHour->employer->name }}" readonly>
                 </div>
                 <div class="form-group">
+                    <label for="cpf">CPF</label>
+                    <input type="text" class="form-control" id="cpf" name="cpf" value="{{ $workingHour->employer->cpf }}" readonly>
+                </div>
+                <div class="form-group">
                     <label for="hours_worked">Horas Lançadas</label>
                     <input type="number" class="form-control" id="hours_worked" name="hours_worked" value="{{ $workingHour->hours_worked }}" min="0">
                 </div>
