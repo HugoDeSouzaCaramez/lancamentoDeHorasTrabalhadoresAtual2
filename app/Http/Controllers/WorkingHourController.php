@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\WorkingHour;
 use App\Models\Employer;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 
 class WorkingHourController extends Controller
@@ -13,6 +14,11 @@ class WorkingHourController extends Controller
     public function index()
     {
         $workingHours = WorkingHour::orderBy('date', 'desc')->paginate(10);
+
+        foreach ($workingHours as $workingHour) {
+            $workingHour->date = Carbon::parse($workingHour->date)->format('d-m-Y');
+        }
+        
         return view('working_hours.index', ['workingHours' => $workingHours]);
     }
     public function create()
