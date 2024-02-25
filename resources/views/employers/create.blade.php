@@ -7,6 +7,16 @@
                 <div class="card">
                     <div class="card-header">Novo Colaborador</div>
 
+                    @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
+
                     <div class="card-body">
                         <form method="POST" action="{{ route('employers.store') }}">
                             @csrf
@@ -17,6 +27,14 @@
                             <div class="form-group">
                                 <label for="email">Email:</label>
                                 <input type="email" name="email" id="email" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="cpf">CPF:</label>
+                                <input type="text" id="cpf" name="cpf" value="{{ old('cpf') }}" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="birth_date">Data de Nascimento:</label>
+                                <input type="date" id="birth_date" name="birth_date" value="{{ old('birth_date') }}" class="form-control" required>
                             </div>
                             <button type="submit" class="btn btn-primary">Salvar</button>
                         </form>

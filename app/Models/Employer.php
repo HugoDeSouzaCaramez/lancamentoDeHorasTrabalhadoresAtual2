@@ -12,5 +12,7 @@ class Employer extends Model
     protected $fillable = [
         'name',
         'email',
+        'cpf', 
+        'birth_date',
     ];
 }

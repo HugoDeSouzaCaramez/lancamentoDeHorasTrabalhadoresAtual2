@@ -23,6 +23,8 @@ class EmployerController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:employers',
+            'cpf' => 'required|unique:employers|regex:/^\d{3}\.\d{3}\.\d{3}\-\d{2}$/',
+            'birth_date' => 'required|date',
         ]);
 
         Employer::create($request->all());
@@ -46,9 +48,18 @@ class EmployerController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email',
+            'cpf' => 'required|regex:/^\d{3}\.\d{3}\.\d{3}\-\d{2}$/',
+            'birth_date' => 'required|date',
         ]);
 
         $employer = Employer::findOrFail($id);
+
+        if ($request->cpf !== $employer->cpf) {
+            $request->validate([
+                'cpf' => 'unique:employers,cpf',
+            ]);
+        }
+
         $employer->update($request->all());
 
         return redirect()->route('home')->with('success', 'Colaborador atualizado com sucesso!');;
