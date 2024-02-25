@@ -66,4 +66,13 @@ class EmployerController extends Controller
         $employer->delete();
         return redirect()->route('home');
     }
+
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+
+        $employers = Employer::where('name', 'like', "%$query%")->get();
+
+        return response()->json($employers);
+    }
 }

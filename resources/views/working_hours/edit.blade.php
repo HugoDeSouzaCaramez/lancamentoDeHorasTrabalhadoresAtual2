@@ -21,7 +21,10 @@
                 @csrf
                 @method('PUT')
                 <input type="hidden" name="employer_id" value="{{ $workingHour->employer_id }}">
-    
+                <div class="form-group">
+                    <label for="employer">Colaborador</label>
+                    <input type="text" class="form-control" id="employer" name="employer" value="{{ $workingHour->employer->name }}" readonly>
+                </div>
                 <div class="form-group">
                     <label for="hours_worked">Horas Lançadas</label>
                     <input type="number" class="form-control" id="hours_worked" name="hours_worked" value="{{ $workingHour->hours_worked }}">

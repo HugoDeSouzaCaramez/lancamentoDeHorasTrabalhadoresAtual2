@@ -42,7 +42,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/working-hours/{id}/edit', [WorkingHourController::class, 'edit'])->name('working-hours.edit');
     Route::put('/working-hours/{workingHour}', [WorkingHourController::class, 'update'])->name('working-hours.update');
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
-    // Outras rotas protegidas aqui...
+    Route::get('/search-employers', [EmployerController::class, 'search']);
 });
 
 // Route::middleware(['auth'])->group(function () {

@@ -10,6 +10,10 @@
             </div>
         @endif
         <h1>Colaboradores</h1>
+        <div id="app">
+            <employer-list></employer-list>
+        </div>
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
         <table class="table">
             <thead>
                 <tr>
