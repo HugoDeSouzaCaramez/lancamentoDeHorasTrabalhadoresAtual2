@@ -27,7 +27,7 @@
 
                         <div class="form-group">
                             <label for="hours_worked">Horas Trabalhadas:</label>
-                            <input type="number" class="form-control" id="hours_worked" name="hours_worked" required>
+                            <input type="number" class="form-control" id="hours_worked" name="hours_worked" min="0" required>
                         </div>
 
                         <button type="submit" class="btn btn-primary">Salvar</button>

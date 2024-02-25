@@ -25,7 +25,7 @@
                 </div>
                 <div class="form-group">
                     <label for="hours_worked">Horas Lançadas</label>
-                    <input type="number" class="form-control" id="hours_worked" name="hours_worked" value="{{ $workingHour->hours_worked }}">
+                    <input type="number" class="form-control" id="hours_worked" name="hours_worked" value="{{ $workingHour->hours_worked }}" min="0">
                 </div>
                 <div class="form-group">
                     <label for="date">Data</label>

@@ -24,7 +24,7 @@ class WorkingHourController extends Controller
         $request->validate([
             'employer_id' => 'required',
             'date' => 'required|date|unique:working_hours,date,NULL,id,employer_id,' . $request->employer_id,
-            'hours_worked' => 'required|integer',
+            'hours_worked' => 'required|integer|min:0',
         ]);
 
         WorkingHour::create($request->all());
@@ -41,7 +41,7 @@ class WorkingHourController extends Controller
     public function update(Request $request, WorkingHour $workingHour)
     {
         $request->validate([
-            'hours_worked' => 'required|integer',
+            'hours_worked' => 'required|integer|min:0',
             'date' => 'required|date',
         ]);
 
